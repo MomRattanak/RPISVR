@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="RPISSVR_Managements.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPISSVR_Managements"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="using:CommunityToolkit.WinUI.UI.Controls"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="AppTitleBar"
+            Height="48">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition x:Name="IconColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="TitleColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="LeftDragColumn" Width="*"/>
+                <ColumnDefinition x:Name="SearchColumn" Width="4*" MinWidth="220"/>
+                <ColumnDefinition x:Name="RightDragColumn" Width="*" MinWidth="48"/>
+                <ColumnDefinition x:Name="AccountColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="TitleBarIcon" 
+                   Source="ms-appx:///Assets/StoreLogo.png"
+                   Grid.Column="1"
+                   Width="16" Height="16"
+                   Margin="8,0,4,0"/>
+            <TextBlock x:Name="TitleBarTextBlock"
+                   Text="Main Page" 
+                   Style="{StaticResource CaptionTextBlockStyle}"
+                   Grid.Column="2"
+                   VerticalAlignment="Center">
+            </TextBlock>
+            <AutoSuggestBox x:Name="TitleBarSearchBox" 
+                        Grid.Column="4" 
+                        QueryIcon="Find"
+                        PlaceholderText="Search"
+                        VerticalAlignment="Center"
+                        MaxWidth="600"/>
+            <PersonPicture x:Name="PersonPic" 
+                       Grid.Column="6" 
+                       Height="32" Margin="0,0,16,0"/>
+        </Grid>
+
+        <NavigationView x:Name="Main_Navigation" Grid.Row="1"
+                        IsBackButtonVisible="Collapsed"
+                        FontFamily="Khmer OS Battambang"
+                        IsSettingsVisible="True" Loaded="MainNV_Load" SelectionChanged="Main_NV_Items_SelectionChanged" OpenPaneLength="200">
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem x:Name="S1" Icon="Upload" Content="បញ្ចូលទិន្នន័យសិស្សនិស្សិត" FontFamily="Khmer OS Battambang" Tag="" />
+                <NavigationViewItem x:Name="S2" Icon="Save" Content="No Click01" Tag="Show_StuInformation" />
+                <NavigationViewItem x:Name="S3" Icon="Refresh" Content="No Click02" Tag="Department_Info" />
+                <NavigationViewItem Icon="Download" Content="No Click03" Tag="" />
+                <NavigationViewItem Content="Logo">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/Square44x44Logo.targetsize-24_altform-unplated.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
+            <TabView x:Name="TabView" FontFamily="Khmer OS Battambang" IsAddTabButtonVisible="False" CanDragTabs="True" TabItemsChanged="TabView_TabItemsChanged" TabCloseRequested="TabView_TabCloseRequested">
+                <TabViewItem Header="ទំព័រដើម" TabIndex="0" IsClosable="False" Style="{StaticResource Fonts_Header_TabView}">
+                    <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top" BorderBrush="Aqua" BorderThickness="2">
+                        <Button Content="Delete"/>
+                    </StackPanel>
+                    
+                </TabViewItem>
+            </TabView>
+
+        </NavigationView>
+
+        <Frame x:Name="contentFrame"/>
+    </Grid>
+    
+    
+</Window>

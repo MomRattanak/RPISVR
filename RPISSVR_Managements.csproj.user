@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UapAppxPackageBuildMode>SideloadOnly</UapAppxPackageBuildMode>
+    <AppxShowAllApps>False</AppxShowAllApps>
+    <AppxBuildConfigurationSelection>x86|x64</AppxBuildConfigurationSelection>
+    <PackageOptionalProjectsInIdeBuilds>False</PackageOptionalProjectsInIdeBuilds>
+  </PropertyGroup>
+  <ItemGroup>
+    <Page Update="Add_Info_Plue\Add_Skill_Plus.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <None Update="App.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </None>
+    <Page Update="view\Insert_Infos\Connect_Board.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="view\Insert_Infos\P_InsertStudents_Info.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
